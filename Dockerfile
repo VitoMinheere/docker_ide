@@ -10,7 +10,7 @@ RUN apt update && apt upgrade -y
 
 # Install basic libraries
 RUN apk add -U --no-cache \
-    neovim git \
+    vim git \
     tmux openssh-client bash \
     curl less
 
@@ -18,7 +18,6 @@ RUN apk add -U --no-cache \
 RUN apk add -U --no-cache $(cat .apk)
 
 # Install personal config files
-COPY files/bashrc .bashrc
-COPY files/vimrc .vimrc
-COPY files/tmux.conf .tmux.conf
-
+COPY files/.bashrc .bashrc
+COPY files/.vimrc .vimrc
+COPY files/.tmux.conf .tmux.conf
